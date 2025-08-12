@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login & Signup Form</title>
+    <link rel="stylesheet" href="./index.css" />  <!-- Fixed 'ref' to 'rel' -->
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="brand-section">
+        <h1>Vignan University</h1>
+        <p>Welcome to our platform. Please log in or sign up to continue.</p>
+    </div>
+
+    <div class="form-section">
+        <h2 id="form-title">Login</h2>
+        <form id="auth-form">
+            <input type="text" placeholder="Username" required />
+            <input type="password" placeholder="Password" required />
+            <button type="submit">Login</button>
+        </form>
+        <p class="toggle-text" id="toggle-text">
+            Don't have an account? <a href="#" id="toggle-link">Sign Up</a>
+        </p>
+    </div>
+</div>
+
+<script>
+    const formTitle = document.getElementById('form-title');
+    const toggleText = document.getElementById('toggle-text');
+    const toggleLink = document.getElementById('toggle-link');
+    const authForm = document.getElementById('auth-form');
+
+    function loadLoginForm() {
+        formTitle.textContent = 'Login';
+        authForm.innerHTML = `
+            <input type="text" placeholder="Username" required />
+            <input type="password" placeholder="Password" required />
+            <button type="submit">Login</button>
+        `;
+        toggleText.innerHTML = `Don't have an account? <a href="#" id="toggle-link">Sign Up</a>`; // Fixed string syntax
+        document.getElementById('toggle-link').addEventListener('click', loadSignupForm);
+    }
+
+    function loadSignupForm() {
+        formTitle.textContent = 'Sign Up';
+        authForm.innerHTML = `
+            <input type="text" placeholder="Username" required />
+            <input type="email" placeholder="Email" required />
+            <input type="password" placeholder="Password" required />
+            <input type="password" placeholder="Confirm Password" required />
+            <button type="submit">Sign Up</button>
+        `;
+        toggleText.innerHTML = `Already have an account? <a href="#" id="toggle-link">Login</a>`; // Fixed string syntax
+        document.getElementById('toggle-link').addEventListener('click', loadLoginForm);
+    }
+
+    toggleLink.addEventListener('click', loadSignupForm);
+</script>
+
+</body>
+</html>

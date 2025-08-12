@@ -1,0 +1,140 @@
+ :root {
+        --primary: #1a73e8;
+        --primary-hover: #1665cb;
+        --bg-light: #f4f6f9;
+        --text-dark: #222;
+        --text-muted: #555;
+        --border-color: #ddd;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background: var(--bg-light);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .wrapper {
+        display: flex;
+        background: white;
+        width: 900px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 0.6s ease;
+    }
+
+    /* Left branding section */
+    .brand-section {
+        flex: 1;
+        background: var(--primary);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+        text-align: center;
+    }
+
+    .brand-section h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .brand-section p {
+        font-size: 15px;
+        line-height: 1.4;
+        max-width: 300px;
+    }
+
+    /* Right form section */
+    .form-section {
+        flex: 1.2;
+        padding: 40px;
+        position: relative;
+    }
+
+    .form-section h2 {
+        margin-bottom: 20px;
+        color: var(--text-dark);
+    }
+
+    .form-section form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-section input {
+        padding: 12px;
+        margin: 10px 0;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        font-size: 14px;
+        outline: none;
+        transition: 0.3s;
+    }
+
+    .form-section input:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
+    }
+
+    .form-section button {
+        background: var(--primary);
+        color: white;
+        padding: 12px;
+        margin-top: 15px;
+        border: none;
+        border-radius: 6px;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .form-section button:hover {
+        background: var(--primary-hover);
+    }
+
+    .toggle-text {
+        margin-top: 15px;
+        font-size: 14px;
+        color: var(--text-muted);
+    }
+
+    .toggle-text a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .toggle-text a:hover {
+        text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+        .wrapper {
+            flex-direction: column;
+            width: 95%;
+        }
+        .brand-section {
+            padding: 20px;
+        }
+        .form-section {
+            padding: 20px;
+        }
+    }
